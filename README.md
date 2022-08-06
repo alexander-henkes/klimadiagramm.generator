@@ -2,7 +2,7 @@
   <a href="https://geographie-im-unterricht.de/" target="_blank">
     <img src="https://geographie-im-unterricht.de/images/logo_top.png" alt="https://geographie-im-unterricht.de/"><br/>
   </a>
-    Generator zur Erstellung von Klimadiagrammen
+    Dieser Generator übernimmt bei Eingabe eigener Werte die Erstellung von Klimadiagrammen im Stil klassischer Schulbücher.
   
 <p align="center">
 <img src="https://img.shields.io/github/v/release/alexander-henkes/klimadiagramm.generator">
