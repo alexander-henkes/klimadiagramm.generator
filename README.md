@@ -14,7 +14,7 @@
 
 ## Dokumentation
 Den Klimadiagramm-Generator können Sie unter folgender Webpräsenz verwenden:
-* [Klimadiagramm-Generator auf geographie-im-unterricht.de](https://geographie-im-unterricht.de/klimadiagramm-generator.html)
+* [Klimadiagramm-Generator auf »geographie-im-unterricht.de«](https://geographie-im-unterricht.de/klimadiagramm-generator.html)
 
 ## Lizenz
 Der Autor dieser JavaScript-Applikation ist Alexander Henkes. Alle Rechte am Code vorbehalten. Dieser darf ausschließlich unter [geographie-im-unterricht.de](https://geographie-im-unterricht.de/klimadiagramm-generator.html) und dem entsprechenden GitHub repository "alexander-henkes/klimadiagramm.generator" aufgeführt und eingesetzt werden. Die mithilfe der Applikation erzeugten Klimadiagramme sind lizensiert unter der Creative Commons Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International [(CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de) Lizenz. Bitte beachten Sie zwecks Weiterverwendung die dargestellten [Lizenzbedingungen](https://geographie-im-unterricht.de/lizenzbedingungen.html).
