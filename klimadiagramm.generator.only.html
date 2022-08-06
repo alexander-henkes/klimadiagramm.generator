@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Alexander Henkes, geographie-im-unterricht.de">
+    <meta name="description" content="climate charts generator, written in HTML and JS">
+    <meta name="keywords" content="geography, Geographie, climate charts, Klimadiagramme">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      
+    <!--Deutsch: Der Autor dieses Projekts ist Alexander Henkes. Alle Rechte am Code vorbehalten. Dieser darf ausschließlich unter geographie-im-unterricht.de und dem entsprechenden  GitHub repository "alexander-henkes/klimadiagramm.generator" aufgeführt werden. Es kommt chart.js zur Anwendung: https://github.com/chartjs/Chart.js
+    Die mithilfe der Applikation erzeugten Klimadiagramme sind lizensiert unter der Creative Commons Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International (CC BY-NC-SA 4.0) Lizenz. Bitte beachten Sie zwecks Weiterverwendung die dargestellten Lizenzbedingungen: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de-->
+      
+    <!--English: The author of this project is Alexander Henkes. All rights to the code reserved. This may only be visible under geographie-im-unterricht.de and the corresponding GitHub repository "alexander-henkes/klimadiagramm.generator". chart.js is used: https://github.com/chartjs/Chart.js
+    The generated climate charts using the application are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License. For further use, please note the license conditions shown: https://creativecommons.org/licenses/by-nc-sa/4.0/-->
+      
+<title>Klimadiagramm-Generator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto';
+      }
+      .chartMenu {
+        width: 1.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 500px;
+        padding: 20px;
+        border-radius: 20px;
+        background: white;
+      }
+    </style>
+  </head>
+
+    
+<body>
+<h2 align = "left">Allgemeine Informationen</h2><br>
+<table class="table">
+    <tr>
+      <th align = "right">Stadt/Ort:&nbsp;</th>
+      <td><input type="" class="information" id="place" placeholder=" Hamburg, Deutschland"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Höhe:&nbsp;</th>
+      <td><input type="number" class="information" id="altitude" placeholder=" m ü.M."/></td>
+    </tr>
+    <tr>
+    <th align = "right">Koordinaten:&nbsp;</th>
+      <td><input type="" class="information" id="coordinates" placeholder=" 53°33''12 N, 10°0'11'' O"/></td>
+    </tr>
+</table>
+<br><br>
+<h2 align = "left">Niederschlag</h2><br>
+<table class="table">
+  <tbody>
+    <tr>
+      <th align = "right">Januar:&nbsp;</th>
+      <td><input type="number" class="rain" id="JanRain" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Februar:&nbsp;</th>
+      <td><input type="number" class="rain" id="FebRain" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">März:&nbsp;</th>
+      <td><input type="number" class="rain" id="MarRain" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">April:&nbsp;</th>
+      <td><input type="number" class="rain" id="AprRain" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Mai:&nbsp;</th>
+      <td><input type="number" class="rain" id="MayRain" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Juni:&nbsp;</th>
+      <td><input type="number" class="rain" id="JunRain" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Juli:&nbsp;</th>
+      <td><input type="number" class="rain" id="JulRain" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">August:&nbsp;</th>
+      <td><input type="number" class="rain" id="AugRain" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">September:&nbsp;</th>
+      <td><input type="number" class="rain" id="SepRain" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Oktober:&nbsp;</th>
+      <td><input type="number" class="rain" id="OctRain" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">November:&nbsp;</th>
+      <td><input type="number" class="rain" id="NovRain" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Dezember:&nbsp;</th>
+      <td><input type="number" class="rain" id="DecRain" placeholder=" mm"/></td>
+    </tr>
+  </tbody>
+</table>
+<br><br>
+<h2 align = "left">Temperatur</h2><br>
+<table class="table">
+  <tbody>
+    <tr>
+      <th align = "right">Januar:&nbsp;</th>
+      <td align = "right"><input type="number" class="temperature" id="JanTemp" placeholder="°C"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Februar:&nbsp;</th>
+      <td><input type="number" class="temperature" id="FebTemp" placeholder=" °C"/></td>
+    </tr>
+    <tr>
+      <th align = "right">März:&nbsp;</th>
+      <td><input type="number" class="temperature" id="MarTemp" placeholder=" °C"/></td>
+    </tr>
+    <tr>
+      <th align = "right">April:&nbsp;</th>
+      <td><input type="number" class="temperature" id="AprTemp" placeholder=" °C"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Mai:&nbsp;</th>
+      <td><input type="number" class="temperature" id="MayTemp" placeholder=" °C"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Juni:&nbsp;</th>
+      <td><input type="number" class="temperature" id="JunTemp" placeholder=" °C"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Juli:&nbsp;</th>
+      <td><input type="number" class="temperature" id="JulTemp" placeholder=" °C"/></td>
+    </tr>
+    <tr>
+      <th align = "right">August:&nbsp;</th>
+      <td><input type="number" class="temperature" id="AugTemp" placeholder=" °C"/></td>
+    </tr>
+    <tr>
+      <th align = "right">September:&nbsp;</th>
+      <td><input type="number" class="temperature" id="SepTemp" placeholder=" °C"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Oktober:&nbsp;</th>
+      <td><input type="number" class="temperature" id="OctTemp" placeholder=" °C"/></td>
+    </tr>
+    <tr>
+      <th align = "right">November:&nbsp;</th>
+      <td><input type="number" class="temperature" id="NovTemp" placeholder=" °C"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Dezember:&nbsp;</th>
+      <td><input type="number" class="temperature" id="DecTemp" placeholder=" °C"/></td>
+    </tr>
+  </tbody>
+</table> 
+<br>      
+<output hidden id="lowRain">0</output>
+<output hidden id="highRain">0</output>
+<output hidden id="lowTemp">0</output>
+<output hidden id="highTemp">0</output>
+
+<div class="chartBox">
+  <canvas id="climateChart"></canvas>
+</div>
+
+
+
+<input align="left" id="create_climateChart()" type="button" value=" Klimadiagramm erstellen " onclick="maxRain();maxTemp();minRain();minTemp();create_climateChart()"/><br><br>
+<input align="left" id="reload_climateChart()" type="button" value=" Klimadiagramm zurücksetzen " onclick="window.location.href=window.location.href"/><br>  
+  </body>
+</html>
