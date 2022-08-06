@@ -4,6 +4,11 @@
   </a>
     Generator zur Erstellung von Klimadiagrammen
 </p>
+<img src="https://img.shields.io/github/v/release/alexander-henkes/klimadiagramm.generator">
+<img src="https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fgeographie-im-unterricht.de">
+<img src="https://img.shields.io/github/release-date/alexander-henkes/klimadiagramm.generator">
+<img src="https://img.shields.io/github/languages/code-size/alexander-henkes/klimadiagramm.generator">
+<img src="https://img.shields.io/github/issues-raw/alexander-henkes/klimadiagramm.generator">
 
 ## Dokumentation
 Den Klimadiagramm-Generator können Sie unter folgender Webpräsenz verwenden:
