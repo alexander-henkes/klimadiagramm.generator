@@ -5,11 +5,12 @@
     Dieser Generator übernimmt bei Eingabe eigener Werte die Erstellung von Klimadiagrammen im Stil klassischer Schulbücher.
   
 <p align="center">
-<img src="https://img.shields.io/github/v/release/alexander-henkes/klimadiagramm.generator">
+<a href="https://github.com/alexander-henkes"><img src="https://img.shields.io/badge/GitHub-alexander--henkes-blue"></a>
+<a href="https://github.com/alexander-henkes/klimadiagramm.generator/releases/"><img src="https://img.shields.io/github/v/release/alexander-henkes/klimadiagramm.generator"></a>
 <img src="https://img.shields.io/website?down_color=red&down_message=offline&up_color=green&up_message=online&url=https%3A%2F%2Fgeographie-im-unterricht.de">
 <img src="https://img.shields.io/github/release-date/alexander-henkes/klimadiagramm.generator">
 <img src="https://img.shields.io/github/languages/code-size/alexander-henkes/klimadiagramm.generator">
-<img src="https://img.shields.io/github/issues-raw/alexander-henkes/klimadiagramm.generator">
+<a href="https://github.com/alexander-henkes/klimadiagramm.generator/issues/"><img src="https://img.shields.io/github/issues-raw/alexander-henkes/klimadiagramm.generator"></a>
 </p>
 
 ## Dokumentation
