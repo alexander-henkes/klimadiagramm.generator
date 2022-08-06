@@ -1,0 +1,19 @@
+<style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto';
+      }
+      .chartMenu {
+        width: 1.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 500px;
+        padding: 20px;
+        border-radius: 20px;
+        background: white;
+      }
+</style>
