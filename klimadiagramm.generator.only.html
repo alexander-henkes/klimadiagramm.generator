@@ -13,10 +13,28 @@
     <!--English: The author of this project is Alexander Henkes. All rights to the code reserved. This may only be visible under geographie-im-unterricht.de and the corresponding GitHub repository "alexander-henkes/klimadiagramm.generator". chart.js is used: https://github.com/chartjs/Chart.js
     The generated climate charts using the application are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License. For further use, please note the license conditions shown: https://creativecommons.org/licenses/by-nc-sa/4.0/-->
       
-<title>Klimadiagramm-Generator</title>
+<title>Klimadiagramm-Generator v1.1</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto';
+      }
+      .chartMenu {
+        width: 1.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chartBox {
+        width: 500px;
+        padding: 20px;
+        border-radius: 20px;
+        background: white;
+      }
+    </style>
   </head>
 
-    
 <body>
 <h2 align = "left">Allgemeine Informationen</h2><br>
 <table class="table">
@@ -93,7 +111,7 @@
   <tbody>
     <tr>
       <th align = "right">Januar:&nbsp;</th>
-      <td align = "right"><input type="number" class="temperature" id="JanTemp" placeholder="°C"/></td>
+      <td><input type="number" class="temperature" id="JanTemp" placeholder="°C"/></td>
     </tr>
     <tr>
       <th align = "right">Februar:&nbsp;</th>
@@ -140,12 +158,68 @@
       <td><input type="number" class="temperature" id="DecTemp" placeholder=" °C"/></td>
     </tr>
   </tbody>
+    </table><br><br>
+    <h2 align = "left">pot. Verdunstung</h2><br>
+<table class="table">
+  <tbody>
+    <tr>
+      <th align = "right">Januar:&nbsp;</th>
+      <td><input type="number" class="evaporation" id="JanEva" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Februar:&nbsp;</th>
+      <td><input type="number" class="tevaporation" id="FebEva" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">März:&nbsp;</th>
+      <td><input type="number" class="evaporation" id="MarEva" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">April:&nbsp;</th>
+      <td><input type="number" class="evaporation" id="AprEva" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Mai:&nbsp;</th>
+      <td><input type="number" class="evaporation" id="MayEva" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Juni:&nbsp;</th>
+      <td><input type="number" class="evaporation" id="JunEva" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Juli:&nbsp;</th>
+      <td><input type="number" class="evaporation" id="JulEva" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">August:&nbsp;</th>
+      <td><input type="number" class="evaporation" id="AugEva" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">September:&nbsp;</th>
+      <td><input type="number" class="evaporation" id="SepEva" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Oktober:&nbsp;</th>
+      <td><input type="number" class="evaporation" id="OctEva" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">November:&nbsp;</th>
+      <td><input type="number" class="evaporation" id="NovEva" placeholder=" mm"/></td>
+    </tr>
+    <tr>
+      <th align = "right">Dezember:&nbsp;</th>
+      <td><input type="number" class="evaporation" id="DecEva" placeholder=" mm"/></td>
+    </tr>
+  </tbody>
 </table> 
+    
 <br>      
 <output hidden id="lowRain">0</output>
 <output hidden id="highRain">0</output>
 <output hidden id="lowTemp">0</output>
 <output hidden id="highTemp">0</output>
+<output hidden id="lowEva">0</output> 
+<output hidden id="highEva">0</output> 
 
 <div class="chartBox">
   <canvas id="climateChart"></canvas>
@@ -153,7 +227,8 @@
 
 
 
-<input align="left" id="create_climateChart()" type="button" value=" Klimadiagramm erstellen " onclick="maxRain();maxTemp();minRain();minTemp();create_climateChart()"/><br><br>
+<input align="left" id="create_climateChart()" type="button" value=" Klimadiagramm erstellen " onclick="maxRain();maxTemp();minRain();minTemp();minEva();maxEva();create_climateChart()"/><br><br>
 <input align="left" id="reload_climateChart()" type="button" value=" Klimadiagramm zurücksetzen " onclick="window.location.href=window.location.href"/><br>  
+
   </body>
 </html>
