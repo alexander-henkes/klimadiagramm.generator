@@ -228,8 +228,8 @@
 
 
 <input align="left" id="create_climateChart()" type="button" value=" Klimadiagramm erstellen " onclick="maxRain();maxTemp();minRain();minTemp();minEva();maxEva();create_climateChart()"/><br><br>
-<input align="left" id="reload_climateChart()" type="button" value=" Klimadiagramm zurücksetzen " onclick="window.location.href=window.location.href"/><br>  
-
+<input align="left" id="reload_climateChart()" type="button" value=" Klimadiagramm zurücksetzen " onclick="window.location.href=window.location.href"/><br><br>
+<input align="left" id="reload_climateChart()" type="button" value=" Herunterladen " onclick="download()"/><br>  
 
 <script type="text/javascript" src="https://geographie-im-unterricht.de/files/chart.js/chart.js"></script>
       
@@ -780,7 +780,7 @@ var backgroundColor = {
                     } else {
                         return this.getLabelForValue(value)
                     }
-                } //
+                }
             }
           }     
     }
@@ -791,7 +791,19 @@ var backgroundColor = {
     climateChart.destroy();
     create_climateChart();
   }
-}    
+};
+    
+// create download
+function download(){
+    setTimeout(function() {
+    const imageLink = document.createElement('a');
+    const canvas = document.getElementById('climateChart');
+    imageLink.download = 'klimadiagramm.png';
+    imageLink.href = canvas.toDataURL('image/png', 1);
+    // document.write('<img src=" '+imageLink+' "/>');
+    imageLink.click();
+    }, 500);
+}
 
 </script>
   </body>
