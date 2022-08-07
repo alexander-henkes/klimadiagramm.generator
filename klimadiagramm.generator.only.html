@@ -14,25 +14,6 @@
     The generated climate charts using the application are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License. For further use, please note the license conditions shown: https://creativecommons.org/licenses/by-nc-sa/4.0/-->
       
 <title>Klimadiagramm-Generator v1.1</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: 'Roboto';
-      }
-      .chartMenu {
-        width: 1.2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .chartBox {
-        width: 500px;
-        padding: 20px;
-        border-radius: 20px;
-        background: white;
-      }
-    </style>
   </head>
 
 <body>
@@ -228,7 +209,8 @@
 
 
 <input align="left" id="create_climateChart()" type="button" value=" Klimadiagramm erstellen " onclick="maxRain();maxTemp();minRain();minTemp();minEva();maxEva();create_climateChart()"/><br><br>
-<input align="left" id="reload_climateChart()" type="button" value=" Klimadiagramm zurücksetzen " onclick="window.location.href=window.location.href"/><br>  
-
+<input align="left" id="reload_climateChart()" type="button" value=" Klimadiagramm zurücksetzen " onclick="window.location.href=window.location.href"/><br><br>
+<input align="left" id="reload_climateChart()" type="button" value=" Herunterladen " onclick="download()"/><br>  
+      
   </body>
 </html>
