@@ -547,7 +547,7 @@ var backgroundColor = {
                     } else {
                         return this.getLabelForValue(value)
                     }
-                } //
+                }
             }
           }     
     }
@@ -558,5 +558,18 @@ var backgroundColor = {
     climateChart.destroy();
     create_climateChart();
   }
-}    
+};
+    
+// create download
+function download(){
+    setTimeout(function() {
+    const imageLink = document.createElement('a');
+    const canvas = document.getElementById('climateChart');
+    imageLink.download = 'klimadiagramm.png';
+    imageLink.href = canvas.toDataURL('image/png', 1);
+    // document.write('<img src=" '+imageLink+' "/>');
+    imageLink.click();
+    }, 500);
+}
+
 </script>
