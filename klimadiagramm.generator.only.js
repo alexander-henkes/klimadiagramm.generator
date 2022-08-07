@@ -3,7 +3,7 @@
 <script>
 let climateChart = undefined;
    
-// calculate maximum and minimum values for temperature and rain
+// calculate maximum and minimum values for temperature and rain and evaporation
 function maxRain(){
             var arr = document.querySelectorAll(".rain");
             var emptyarray = [];
@@ -22,6 +22,15 @@ function maxTemp(){
             var max = Math.max.apply(null, emptyarray);
             document.getElementById("highTemp").innerHTML=max;
     }
+function maxEva(){
+            var arr = document.querySelectorAll(".evaporation");
+            var emptyarray = [];
+            arr.forEach((elem) => {
+                emptyarray.push(elem.value);
+            })
+            var max = Math.max.apply(null, emptyarray);
+            document.getElementById("highEva").innerHTML=max;
+    }
 function minRain(){
             var arr = document.querySelectorAll(".rain");
             var emptyarray = [];
@@ -39,7 +48,16 @@ function minTemp(){
             })
             var max = Math.min.apply(null, emptyarray);
             document.getElementById("lowTemp").innerHTML=max;
-    }   
+    }
+function minEva(){
+            var arr = document.querySelectorAll(".evaporation");
+            var emptyarray = [];
+            arr.forEach((elem) => {
+                emptyarray.push(elem.value);
+            })
+            var max = Math.min.apply(null, emptyarray);
+            document.getElementById("lowEva").innerHTML=max;
+    }
 
 // now create climate chart
 function create_climateChart() {
@@ -79,6 +97,21 @@ function create_climateChart() {
    let maxTemp = document.getElementById("highTemp").value;
   let minRain = document.getElementById("lowRain").value;
    let maxRain = document.getElementById("highRain").value;
+  let minEva = document.getElementById("lowEva").value;
+   let maxEva = document.getElementById("highEva").value;
+// values for evaporation
+  let JanEva = document.getElementById("JanEva").value;
+   let FebEva = document.getElementById("FebEva").value;
+  let MarEva = document.getElementById("MarEva").value;
+   let AprEva = document.getElementById("AprEva").value;
+  let MayEva = document.getElementById("MayEva").value;
+   let JunEva = document.getElementById("JunEva").value;
+  let JulEva = document.getElementById("JulEva").value;
+   let AugEva = document.getElementById("AugEva").value;
+  let SepEva = document.getElementById("SepEva").value;
+   let OctEva = document.getElementById("OctEva").value;
+  let NovEva = document.getElementById("NovEva").value;
+   let DecEva = document.getElementById("DecEva").value;
 // force 0 on y-rain-axis
     if(minTemp > 0){
         minTemp0 = 0;
@@ -92,18 +125,31 @@ function create_climateChart() {
         minTemp0rounded = Math.ceil(minTemp0 / 10) * 10;
     }
    let maxTemprounded = Math.ceil(maxTemp / 10) * 10;
-    let maxRainrounded = Math.ceil(maxRain / 20) * 20;  
+    let maxRainrounded = Math.ceil(maxRain / 20) * 20;
+   let maxEvarounded = Math.ceil(maxEva / 20) * 20;
 // average temp
     let avTemp = Math.round((JanTemp - - FebTemp - - MarTemp - - AprTemp - - MayTemp - - JunTemp - - JulTemp - - AugTemp - - SepTemp - - OctTemp - - NovTemp - - DecTemp) / 12)
+// average eva
+    let anEva = Math.round((JanEva - - FebEva - - MarEva - - AprEva - - MayEva - - JunEva - - JulEva - - AugEva - - SepEva - - OctEva - - NovEva - - DecEva) / 12)
 // annual rain
     let anRain = (JanRain - - FebRain - - MarRain - - AprRain - - MayRain - - JunRain - - JulRain - - AugRain - - SepRain - - OctRain - - NovRain - - DecRain);
+// min / max evaporation
+    if(maxEvarounded >= maxRainrounded) {
+        maxRainrounded = maxEvarounded;
+    }
 // prevent low y-temp-axis
     if(maxTemprounded < (maxRainrounded / 2)){
         maxTemprounded = (maxRainrounded / 2);
     }
+    if(maxTemprounded < (maxEvarounded / 2)){
+        maxTemprounded = (maxEvarounded / 2);
+    }
 // prevent same scale on y-temp- & y-rain-axes
     if(maxRainrounded <= maxTemprounded){
         maxRainrounded = (maxTemprounded * 2) ;
+    }
+    if(maxEvarounded <= maxTemprounded){
+        maxEvarounded = (maxTemprounded * 2) ;
     } 
 // customize stepsize over 100
     if(JanRain > 100){
@@ -142,6 +188,42 @@ function create_climateChart() {
     if(DecRain > 100){
         DecRain = ((DecRain - 100) / 5 + 100) ;
     }
+    if(JanEva > 100){
+        JanEva = ((JanEva - 100) / 5 + 100) ;
+    }
+    if(FebEva > 100){
+        FebEva = ((FebEva - 100) / 5 + 100) ;
+    }
+    if(MarEva > 100){
+        MarEva = ((MarEva - 100) / 5 + 100) ;
+    }
+    if(AprEva > 100){
+        AprEva = ((AprEva - 100) / 5 + 100) ;
+    }
+    if(MayEva > 100){
+        MayEva = ((MayEva - 100) / 5 + 100) ;
+    }
+    if(JunEva > 100){
+        JunEva = ((JunEva - 100) / 5 + 100) ;
+    }
+    if(JulEva > 100){
+        JulEva = ((JulEva - 100) / 5 + 100) ;
+    }
+    if(AugEva > 100){
+        AugEva = ((AugEva - 100) / 5 + 100) ;
+    }
+    if(SepEva > 100){
+        SepEva = ((SepEva - 100) / 5 + 100) ;
+    }
+    if(OctEva > 100){
+        OctEva = ((OctEva - 100) / 5 + 100) ;
+    }
+    if(NovEva > 100){
+        NovEva = ((NovEva - 100) / 5 + 100) ;
+    }
+    if(DecEva > 100){
+        DecEvan = ((DecEva - 100) / 5 + 100) ;
+    }
 // prevent high y-axis under 100
     if(parseInt((maxRainrounded - 100) / 5 + 100) < 100) {
         maxRainrounded = maxRainrounded;
@@ -153,10 +235,23 @@ function create_climateChart() {
     } else {
         maxTemprounded = parseInt(Math.ceil(((maxTemprounded - 50) / 5 + 50) / 10) *10);
     }
+    if(parseInt((maxEvarounded - 100) / 5 + 100) < 100) {
+        maxEvarounded = maxEvarounded;
+    } else {
+        maxEvarounded = parseInt(Math.ceil(((maxEvarounded - 100) / 5 + 100) / 20) * 20);
+    }
 // prevent wrong scale ( again ... Jesus :| )
     if(maxTemprounded < 31 && maxRainrounded < 41) {
         maxTemprounded = 40;
         maxRainrounded = 80
+    }
+    if(maxTemprounded < 31 && maxEvarounded < 41) {
+        maxTemprounded = 40;
+        maxEvarounded = 80
+    }
+// min / max evaporation
+    if(maxRainrounded >= maxEvarounded) {
+        maxEvarounded = maxRainrounded;
     }
 // add city/place name
   setTimeout(function writeText(){
@@ -200,10 +295,22 @@ function create_climateChart() {
     var ctx = c.getContext("2d");
     ctx.font = "bold 20px Roboto";
     ctx.textAlign = "right";
-    ctx.fillStyle = "rgba(31,100,175,275)";
+    ctx.fillStyle = "rgba(31,169,225,255)";
     // ctx.strokeStyle = 'white';
     // ctx.lineWidth = 2;
     ctx.fillText([[anRain],''," mm"].join(''), 440, 425);
+    // ctx.strokeText([[anRain],''," mm"].join(''), 440, 445);
+    }, 1500);
+// add annual evaporation
+  setTimeout(function writeText(){
+    var c = document.getElementById("climateChart");
+    var ctx = c.getContext("2d");
+    ctx.font = "bold 20px Roboto";
+    ctx.textAlign = "center";
+    ctx.fillStyle = "rgba(0,0,0,1)";
+    // ctx.strokeStyle = 'white';
+    // ctx.lineWidth = 2;
+    ctx.fillText([[anEva],''," mm"].join(''), 250, 425);
     // ctx.strokeText([[anRain],''," mm"].join(''), 440, 445);
     }, 1500);
 // add signature
@@ -259,7 +366,7 @@ var backgroundColor = {
           borderWidth: 3,
           barPercentage: 1.0,
           categoryPercentage: 1.07,
-          order: 2,
+          order: 3,
           yAxisID: 'rain'
         },{
           label: 'Temperatur',
@@ -272,10 +379,20 @@ var backgroundColor = {
           lineTension: 0.001,
           order: 1,
           yAxisID: 'temp'
+        },{
+          label: 'Verdunstung',
+          type: 'bar',
+          data: [JanEva, FebEva, MarEva, AprEva, MayEva, JunEva, JulEva, AugEva, SepEva, OctEva, NovEva, DecEva],
+          backgroundColor: 'transparent',
+          borderColor: 'rgba(0, 0, 0, 0.75)',
+          borderWidth: 3,
+          barPercentage: 1.0,
+          categoryPercentage: 1.07,
+          order: 2,
+          yAxisID: 'eva'
         }]
       },
     
-        
 // config
       plugins: [whitebackgroundColor, backgroundColor],
     options: {
@@ -297,6 +414,7 @@ var backgroundColor = {
     aspectRatio: 1,    
     scales: {
         x: {
+            stacked: true,
             position: 'bottom',
             grid: {
                 color: 'grey',
@@ -390,6 +508,19 @@ var backgroundColor = {
                 }
             },
     },
+        eva: {
+            min: parseInt(minTemp0rounded * 2),
+            max: maxEvarounded,
+            type: 'linear',
+            position: 'right',
+            grid: {
+                drawTicks: false
+                },
+            ticks: {
+                display: false
+                },
+                stepSize: 20,
+    },
         temp: {
             beginAtZero: true,
             max: maxTemprounded,
@@ -424,15 +555,8 @@ var backgroundColor = {
     });
       
   } else {
-    // update chart values
-    climateChart.data.datasets[0].data = [JanRain, FebRain, MarRain, AprRain, MayRain, JunRain, JulRain, AugRain, SepRain, OctRain, NovRain, DecRain];
-    climateChart.data.datasets[1].data = [JanTemp, FebTemp, MarTemp, AprTemp, MayTemp, JunTemp, JulTemp, AugTemp, SepTemp, OctTemp, NovTemp, DecTemp];
-    // update config (e.g. min & max on axes)
-    climateChart.options.scales.rain.min = parseInt(minTemp0rounded * 2);
-    climateChart.options.scales.rain.max = maxRainrounded;
-    climateChart.options.scales.temp.max = maxTemprounded;
-    climateChart.update();
+    climateChart.destroy();
+    create_climateChart();
   }
 }    
-
 </script>
